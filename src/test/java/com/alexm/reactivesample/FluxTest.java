@@ -81,7 +81,7 @@ public class FluxTest {
 
     @Test
     public void fluxBatch() {
-        flux.log().map(String::toUpperCase).subscribe(System.out::println, 2);
+        flux.log().map(String::toUpperCase).subscribe(System.out::println);
     }
 
     @Test
@@ -89,7 +89,7 @@ public class FluxTest {
         Flux<String> localFlux = Flux.just("one", "two", "three", "four", "five", "six", "seven");
         localFlux.log().map(String::toUpperCase)
                 .subscribeOn(Schedulers.parallel())
-                .subscribe(System.out::println, 2);
+                .subscribe(System.out::println);
         Thread.currentThread().sleep(1000);
     }
 
@@ -101,7 +101,7 @@ public class FluxTest {
                 .flatMap(value ->
                         Mono.just(value).subscribeOn(Schedulers.parallel())
                 )
-                .subscribe(s -> System.out.println("Consumed:" + s), 2);
+                .subscribe(s -> System.out.println("Consumed:" + s));
     }
 
     @Test

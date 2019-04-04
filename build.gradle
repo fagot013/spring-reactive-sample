@@ -15,6 +15,9 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
-	compile 'io.projectreactor:reactor-core:3.0.0.RELEASE'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+//	implementation 'org.springframework:spring-web-reactive'
+
+//	compile 'io.projectreactor:reactor-core:3.3.0.RELEASE'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
